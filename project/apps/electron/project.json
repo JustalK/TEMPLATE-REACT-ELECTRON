@@ -27,7 +27,7 @@
       }
     },
     "serve": {
-      "executor": "@nrwl/node:node",
+      "executor": "@nrwl/node:node", 
       "options": {
         "buildTarget": "electron:build"
       },
