@@ -29,7 +29,7 @@
     "serve": {
       "executor": "nx:run-script", 
       "options": {
-        "script": "start"
+        "script": "build-my-project"
       },
       "configurations": {
         "production": {

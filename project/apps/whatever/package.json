@@ -1,0 +1,9 @@
+{
+  "name": "project",
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build-my-project": "electron ./src/main"
+  },
+  "private": true
+}
