@@ -5,6 +5,7 @@ const path = require('path')
 function createWindow () {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
+    show: false,
     width: 800,
     height: 600,
     webPreferences: {
@@ -12,8 +13,20 @@ function createWindow () {
     }
   })
 
-  
+  require('electron-reload')(__dirname, {
+    electron: path.join(
+      __dirname,
+      'node_modules',
+      '.bin',
+      'electron'
+    ),
+    hardResetMethod: 'exit',
+  });
+
   mainWindow.loadURL('http://localhost:4200');
+  mainWindow.once('ready-to-show', () => {      
+    mainWindow.show()
+  })
 
   // Open the DevTools.
   // mainWindow.webContents.openDevTools()
