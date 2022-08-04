@@ -6,7 +6,8 @@
   "scripts": {
     "start": "electron .",
     "start:dev": "wait-on tcp:4200 && APP_DEV=true electron .",
-    "make": "electron-forge make",
+    "premake": "./scripts/react.sh",
+    "make": "npm run premake && electron-forge make",
     "package": "electron-forge package"
   },
   "repository": "https://github.com/electron/electron-quick-start",
