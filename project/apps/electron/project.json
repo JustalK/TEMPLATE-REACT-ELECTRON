@@ -4,13 +4,9 @@
   "projectType": "application",
   "targets": {
     "build": {
-      "executor": "@nrwl/node:webpack",
-      "outputs": ["{options.outputPath}"],
+      "executor": "nx:run-script",
       "options": {
-        "outputPath": "dist/apps/electron",
-        "main": "apps/electron/src/main.ts",
-        "tsConfig": "apps/electron/tsconfig.app.json",
-        "assets": ["apps/electron/src/assets"]
+        "script": "make"
       },
       "configurations": {
         "production": {
