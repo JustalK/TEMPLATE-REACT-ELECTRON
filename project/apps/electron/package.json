@@ -4,7 +4,8 @@
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "wait-on tcp:4200 && APP_DEV=true electron .",
+    "start": "electron .",
+    "start:dev": "wait-on tcp:4200 && APP_DEV=true electron .",
     "make": "electron-forge make",
     "package": "electron-forge package"
   },

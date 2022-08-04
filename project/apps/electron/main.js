@@ -1,6 +1,7 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
+const nodePath = require('path');
 const isDev = process.env.APP_DEV ? (process.env.APP_DEV.trim() == "true") : false;
 
 function createWindow () {
@@ -13,7 +14,7 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js')
     }
   })
-
+  mainWindow.webContents.openDevTools()
   if (isDev) {
     require('electron-reload')(__dirname, {
       electron: path.join(
@@ -26,7 +27,8 @@ function createWindow () {
     });
   }
 
-  mainWindow.loadURL('http://localhost:4200');
+  //mainWindow.loadURL('http://localhost:4200s');
+  mainWindow.loadFile(nodePath.join(__dirname, 'react/index.html'))
   mainWindow.once('ready-to-show', () => {      
     mainWindow.show()
   })
