@@ -1,6 +1,7 @@
 // Modules to control application life and create native browser window
 const {app, BrowserWindow} = require('electron')
 const path = require('path')
+const isDev = process.env.APP_DEV ? (process.env.APP_DEV.trim() == "true") : false;
 
 function createWindow () {
   // Create the browser window.
@@ -13,15 +14,17 @@ function createWindow () {
     }
   })
 
-  require('electron-reload')(__dirname, {
-    electron: path.join(
-      __dirname,
-      'node_modules',
-      '.bin',
-      'electron'
-    ),
-    hardResetMethod: 'exit',
-  });
+  if (isDev) {
+    require('electron-reload')(__dirname, {
+      electron: path.join(
+        __dirname,
+        'node_modules',
+        '.bin',
+        'electron'
+      ),
+      hardResetMethod: 'exit',
+    });
+  }
 
   mainWindow.loadURL('http://localhost:4200');
   mainWindow.once('ready-to-show', () => {      
