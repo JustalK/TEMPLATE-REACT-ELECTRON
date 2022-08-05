@@ -49,5 +49,6 @@
       }
     }
   },
-  "tags": []
+  "tags": ["scope:electron"],
+  "implicitDependencies": ["react"]
 }
