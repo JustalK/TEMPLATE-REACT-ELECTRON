@@ -14,7 +14,6 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js')
     }
   })
-  mainWindow.webContents.openDevTools()
   if (isDev) {
     require('electron-reload')(__dirname, {
       electron: path.join(
@@ -25,16 +24,15 @@ function createWindow () {
       ),
       hardResetMethod: 'exit',
     });
+    mainWindow.webContents.openDevTools()
+    mainWindow.loadURL('http://localhost:4200');
+  } else {
+    mainWindow.loadFile(nodePath.join(__dirname, 'react/index.html'))
   }
-
-  //mainWindow.loadURL('http://localhost:4200s');
-  mainWindow.loadFile(nodePath.join(__dirname, 'react/index.html'))
+  
   mainWindow.once('ready-to-show', () => {      
     mainWindow.show()
   })
-
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
