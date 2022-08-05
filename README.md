@@ -2,6 +2,8 @@
 
 ## Running
 
+ALL NX COMMANDS NEED TO BE EXECUTED IN THE `PROJECT` FOLDER!
+
 - For running the dev environment:
 
 ```bash
